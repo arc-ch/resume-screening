@@ -209,7 +209,7 @@ def main():
 
     # Display Resume Score only if it exists in session state
     if 'resume_score' in st.session_state:
-        st.markdown('<h2 class="chat-header">Resume Score 🏆</h2>', unsafe_allow_html=True)
+        st.markdown('<h2 style="color: #FFDB58;" class="chat-header">Resume Score 🏆</h2>', unsafe_allow_html=True)
         st.write(st.session_state.resume_score)  # Display saved score
 
     st.markdown('<h2 class="chat-header">💬 Chat with Gemini 🤖</h2>', unsafe_allow_html=True)
