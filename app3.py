@@ -199,7 +199,7 @@ def main():
         job_category = predict_category(resume_text)
 
         # Display the predicted job category in larger, bold font with some color
-        st.markdown(f'<h2 style="font-size: 24px;">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></h2>', unsafe_allow_html=True)
+        st.markdown(f'<h2 style="font-size: 27px;">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></h2>', unsafe_allow_html=True)
         #st.markdown(f'<p class="big-font">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></p>', unsafe_allow_html=True)
 
         # Get resume score with a button styled in orange
@@ -209,10 +209,10 @@ def main():
 
     # Display Resume Score only if it exists in session state
     if 'resume_score' in st.session_state:
-        st.markdown('<p class="chat-header">Resume Score 🏆</p>', unsafe_allow_html=True)
+        st.markdown('<h2 class="chat-header">Resume Score 🏆</h2>', unsafe_allow_html=True)
         st.write(st.session_state.resume_score)  # Display saved score
 
-    st.markdown('<p class="chat-header">💬 Chat with Gemini 🤖</p>', unsafe_allow_html=True)
+    st.markdown('<h2 class="chat-header">💬 Chat with Gemini 🤖</h2>', unsafe_allow_html=True)
     user_input = st.text_area("Ask anything about resumes, improvement tips, etc. 💬 ( Type **IN SHORT** for Concise Output) ", key="chat_input", help="Type your question here.")
 
 
@@ -223,7 +223,7 @@ def main():
 
     # Display Chat Response only if it exists in session state
     if 'chat_response' in st.session_state:
-        st.markdown('<p class="chat-header"> Gemini Response 🗣️</p>', unsafe_allow_html=True)
+        st.markdown('<h2 class="chat-header"> Gemini Response 🗣️</h2>', unsafe_allow_html=True)
         st.write(st.session_state.chat_response)  # Display saved chat response
 
     # Example Questions related to resumes (added Markdown)
