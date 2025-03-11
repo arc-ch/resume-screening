@@ -3,3 +3,4 @@ python-dotenv
 python_docx
 streamlit
 google-genai
+scikit-learn
