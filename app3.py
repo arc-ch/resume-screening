@@ -199,7 +199,7 @@ def main():
         job_category = predict_category(resume_text)
 
         # Display the predicted job category in larger, bold font with some color
-        st.markdown(f'<h2 style="font-size: 27px;">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></h2>', unsafe_allow_html=True)
+        st.markdown(f'<h2 style="font-size: 30px;">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></h2>', unsafe_allow_html=True)
         #st.markdown(f'<p class="big-font">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></p>', unsafe_allow_html=True)
 
         # Get resume score with a button styled in orange
@@ -212,7 +212,7 @@ def main():
         st.markdown('<h2 style="color: #FFDB58;" class="chat-header">Resume Score 🏆</h2>', unsafe_allow_html=True)
         st.write(st.session_state.resume_score)  # Display saved score
 
-    st.markdown('<h2 class="chat-header">💬 Chat with Gemini 🤖</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 style="color: #FFDB58;" class="chat-header">💬 Chat with Gemini 🤖</h2>', unsafe_allow_html=True)
     user_input = st.text_area("Ask anything about resumes, improvement tips, etc. 💬 ( Type **IN SHORT** for Concise Output) ", key="chat_input", help="Type your question here.")
 
 
