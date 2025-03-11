@@ -181,7 +181,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # Title with an emoji
-   st.markdown('<h1 style="color: #FF6347; font-size: 35px;">🚀 Resume Screening & Chat Assistant 📄</h1>', unsafe_allow_html=True)
+     st.markdown('<h1 style="color: #FF6347; font-size: 35px;">🚀 Resume Screening & Chat Assistant 📄</h1>', unsafe_allow_html=True)
    # st.markdown('<h1 class="title-font">🚀 Resume Screening & Chat Assistant 📄</h1>', unsafe_allow_html=True)
     
     uploaded_file = st.file_uploader("Upload a Resume 📑", type=["pdf", "docx", "txt"])
