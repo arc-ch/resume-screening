@@ -181,7 +181,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # Title with an emoji
-    st.markdown('<h1 style="color: #FF6347;">🚀 Resume Screening & Chat Assistant 📄</h1>', unsafe_allow_html=True)
+   st.markdown('<h1 style="color: #FF6347; font-size: 35px;">🚀 Resume Screening & Chat Assistant 📄</h1>', unsafe_allow_html=True)
    # st.markdown('<h1 class="title-font">🚀 Resume Screening & Chat Assistant 📄</h1>', unsafe_allow_html=True)
     
     uploaded_file = st.file_uploader("Upload a Resume 📑", type=["pdf", "docx", "txt"])
@@ -223,7 +223,7 @@ def main():
 
     # Display Chat Response only if it exists in session state
     if 'chat_response' in st.session_state:
-        st.markdown('<h2 class="chat-header"> Gemini Response 🗣️</h2>', unsafe_allow_html=True)
+        st.markdown('<h2 h2 style="color: #FFDB58;" class="chat-header"> Gemini Response 🗣️</h2>', unsafe_allow_html=True)
         st.write(st.session_state.chat_response)  # Display saved chat response
 
     # Example Questions related to resumes (added Markdown)
