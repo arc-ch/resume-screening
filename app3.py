@@ -198,7 +198,8 @@ def main():
         job_category = predict_category(resume_text)
 
         # Display the predicted job category in larger, bold font with some color
-        st.markdown(f'<p class="big-font">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></p>', unsafe_allow_html=True)
+        st.markdown(f'<h2 style="font-size: 24px;">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></h2>', unsafe_allow_html=True)
+        #st.markdown(f'<p class="big-font">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></p>', unsafe_allow_html=True)
 
         # Get resume score with a button styled in orange
         if st.button("Get Resume Score 💯", key="score", help="Click to get the resume match score.", use_container_width=True):
