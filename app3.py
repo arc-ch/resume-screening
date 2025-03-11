@@ -18,7 +18,8 @@ client = genai.Client(api_key=api_key)
 
 
 # Load models and vectorizer
-svc_model = pickle.load(open('clf.pkl', 'rb'))
+# svc_model = pickle.load(open('clf.pkl', 'rb'))
+logreg_model = pickle.load(open('logreg_model.pkl', 'rb'))
 tfidf = pickle.load(open('tfidf.pkl', 'rb'))
 le = pickle.load(open('encoder.pkl', 'rb'))
 
@@ -75,7 +76,7 @@ def handle_file_upload(uploaded_file):
 def predict_category(resume_text):
     cleaned_text = cleanResume(resume_text)
     vectorized_text = tfidf.transform([cleaned_text]).toarray()
-    predicted_category = svc_model.predict(vectorized_text)
+    predicted_category = logreg_model.predict(vectorized_text)
     return le.inverse_transform(predicted_category)[0]
 
 # Construct prompt for Gemini resume scoring
@@ -127,9 +128,8 @@ def gemini_chat(prompt):
     if not any(keyword in prompt_lower for keyword in resume_keywords):
         return "Please refrain from asking random questions and stick to questions related to resumes, job applications, improvement tips, career development, and related topics."
     
-    # Generate content using the corrected API method
     response = client.models.generate_content(
-        model="gemini-2.0-flash",  # You can change the model to whatever you prefer
+        model="gemini-2.0-flash",  
         contents=[prompt]  # Pass the user input as the content
     )
     
@@ -186,8 +186,7 @@ def main():
     uploaded_file = st.file_uploader("Upload a Resume 📑", type=["pdf", "docx", "txt"])
 
     if uploaded_file:
-        # file_type = uploaded_file.name.split(".")[-1].lower()
-       # resume_text = extract_text(uploaded_file, file_type)
+        # Extract resume text
         resume_text = handle_file_upload(uploaded_file)
         st.success("✅ Resume text extracted successfully!")
         
@@ -201,19 +200,16 @@ def main():
         # Display the predicted job category in larger, bold font with some color
         st.markdown(f'<p class="big-font">🔍 Predicted Job Category: <span style="color: #4CAF50;">{job_category} 🧑‍💼</span></p>', unsafe_allow_html=True)
 
-# Get resume score with a button styled in orange
+        # Get resume score with a button styled in orange
         if st.button("Get Resume Score 💯", key="score", help="Click to get the resume match score.", use_container_width=True):
             score = get_resume_score(resume_text, job_category)
             st.session_state.resume_score = score  # Save score in session state
 
     # Display Resume Score only if it exists in session state
     if 'resume_score' in st.session_state:
-        # st.subheader("Resume Score 🏆")
         st.markdown('<p class="chat-header">Resume Score 🏆</p>', unsafe_allow_html=True)
-
         st.write(st.session_state.resume_score)  # Display saved score
 
-    # st.subheader("Chat with Gemini 🤖", anchor="chat")
     st.markdown('<p class="chat-header">💬 Chat with Gemini 🤖</p>', unsafe_allow_html=True)
     user_input = st.text_area("Ask anything about resumes, improvement tips, etc. 💬 ( Type **IN SHORT** for Concise Output) ", key="chat_input", help="Type your question here.")
 
@@ -225,11 +221,10 @@ def main():
 
     # Display Chat Response only if it exists in session state
     if 'chat_response' in st.session_state:
-        # st.subheader("Gemini Response 🗣️")
         st.markdown('<p class="chat-header"> Gemini Response 🗣️</p>', unsafe_allow_html=True)
         st.write(st.session_state.chat_response)  # Display saved chat response
 
-               # Example Questions related to resumes (added Markdown)
+    # Example Questions related to resumes (added Markdown)
     st.markdown("""
     ### Example Queries 📋:
     ```python
