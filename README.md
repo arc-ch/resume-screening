@@ -93,4 +93,4 @@ Pull requests are welcome! Feel free to open an issue for bug fixes or new featu
 This project is **MIT Licensed**.
 
 ---
-🚀 Built with ❤️ by [Your Name](https://github.com/yourusername)
+🚀 Built with ❤️ by [Archit Choudhury](https://github.com/arc-ch)
