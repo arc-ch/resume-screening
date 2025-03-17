@@ -1,4 +1,4 @@
-# 🚀 Resume Screening & Chat Assistant 📄
+# 🚀 Resume Screening & Query Assistant 📄
 
 ![file_2025-03-11_17 10 23](https://github.com/user-attachments/assets/66d205d7-3808-4564-b8d3-bdcc46320e76)
 
